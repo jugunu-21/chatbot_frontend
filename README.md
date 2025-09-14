@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# RAG-Powered News Chatbot Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React frontend for a RAG-powered news chatbot built for Voosh assignment. This application allows users to ask questions about recent news and get AI-powered responses based on a curated news corpus.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+- **Frontend**: [Deployed on Vercel](https://your-vercel-app.vercel.app)
+- **Backend**: [Deployed on Render](https://chatbot-backend-yrvu.onrender.com)
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 💬 Interactive chat interface with real-time messaging
+- 🔄 Session management with reset functionality
+- 📱 Responsive design with modern UI/UX
+- ⚡ Fast loading with optimized performance
+- 🎨 Beautiful SCSS styling
+- 🔍 Source attribution for news articles
+- 📊 Loading states and error handling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **Frontend**: React 19.1.1, SCSS, Axios
+- **Backend**: Node.js, Express.js, Redis
+- **AI/ML**: Jina Embeddings, Google Gemini API
+- **Deployment**: Vercel (Frontend), Render (Backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Quick Start
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js 16+
+- npm or yarn
+- Backend API running (see backend repository)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
 
-### `npm run eject`
+```bash
+git clone <your-frontend-repo-url>
+cd chatbot_frontend
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Set up environment variables:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Create .env.local file
+echo "REACT_APP_API_URL=http://localhost:8000/api" > .env.local
+```
 
-## Learn More
+4. Start the development server:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Code Splitting
+## 📦 Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `npm start` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm test` - Launches the test runner
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-### Analyzing the Bundle Size
+## 🌐 Deployment on Vercel
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Automatic Deployment
 
-### Making a Progressive Web App
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Set environment variable in Vercel dashboard:
+   - `REACT_APP_API_URL` = `https://chatbot-backend-yrvu.onrender.com/api`
+4. Deploy!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Manual Deployment
 
-### Advanced Configuration
+1. Build the project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm run build
+```
 
-### Deployment
+2. Install Vercel CLI:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm i -g vercel
+```
 
-### `npm run build` fails to minify
+3. Deploy:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+vercel --prod
+```
+
+## 🔧 Environment Variables
+
+| Variable            | Description     | Default                     |
+| ------------------- | --------------- | --------------------------- |
+| `REACT_APP_API_URL` | Backend API URL | `http://localhost:8000/api` |
+
+## 📱 Usage
+
+1. **Start a conversation**: Type your question about recent news
+2. **View sources**: Each response includes source attribution
+3. **Reset session**: Click the reset button to start fresh
+4. **Session persistence**: Your chat history is maintained per session
+
+## 🏗️ Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ChatWindow.js    # Main chat interface
+│   ├── MessageList.js   # Message display
+│   ├── InputBox.js      # Message input
+│   └── LoadingSpinner.js # Loading indicator
+├── services/            # API services
+│   └── api.js          # Axios configuration
+├── styles/              # SCSS stylesheets
+├── utils/               # Utility functions
+│   └── sessionManager.js # Session management
+└── App.js              # Main application component
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is part of the Voosh Full Stack Developer assignment.
