@@ -24,7 +24,26 @@ const MessageList = ({ messages, isLoading }) => {
               <p><strong>Sources:</strong></p>
               <ul>
                 {sources.map((source, index) => (
-                  <li key={index}>{source}</li>
+                  <li key={index}>
+                    {typeof source === 'string' ? source : (
+                      <div className="source-item">
+                        <div className="source-title">
+                          {source.url ? (
+                            <a href={source.url} target="_blank" rel="noopener noreferrer">
+                              {source.title}
+                            </a>
+                          ) : (
+                            source.title
+                          )}
+                        </div>
+                        {source.relevanceScore && (
+                          <div className="source-relevance">
+                            Relevance: {Math.round(source.relevanceScore * 100)}%
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </li>
                 ))}
               </ul>
             </div>

@@ -128,6 +128,38 @@
           
           li {
             margin: 0.25rem 0;
+            
+            .source-item {
+              background: rgba(255, 255, 255, 0.1);
+              border-radius: 6px;
+              padding: 0.5rem;
+              margin: 0.25rem 0;
+              
+              .bot & {
+                background: #f8fafc;
+                border: 1px solid #e2e8f0;
+              }
+              
+              .source-title {
+                font-weight: 500;
+                margin-bottom: 0.25rem;
+                
+                a {
+                  color: inherit;
+                  text-decoration: none;
+                  
+                  &:hover {
+                    text-decoration: underline;
+                  }
+                }
+              }
+              
+              .source-relevance {
+                font-size: 0.75rem;
+                opacity: 0.8;
+                color: #6b7280;
+              }
+            }
           }
         }
       }
